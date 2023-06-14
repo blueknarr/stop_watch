@@ -30,6 +30,18 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
               ),
             ],
           ),
+          SizedBox(
+            width: 100,
+            height: 200,
+
+            /// 리스트가 스크롤이 되야 한다.
+            child: ListView(
+              children: [
+                /// Center로 감싸면 가운데 정렬
+                Center(child: Text('1')),
+              ],
+            ),
+          ),
           const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
