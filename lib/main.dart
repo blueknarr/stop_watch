@@ -1,7 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:stop_watch/stop_watch_screen.dart';
 
 void main() {
+  /// 1초 마다 timer 함수가 실행 된다.
+  Timer.periodic(Duration(seconds: 1), (timer) {
+    print('...');
+  });
+
   runApp(const MyApp());
 }
 
