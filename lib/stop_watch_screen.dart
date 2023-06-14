@@ -14,7 +14,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   int _time = 0;
   bool _isRunning = false;
 
-  List<String> _lapTimes = [];
+  final List<String> _lapTimes = [];
 
   void _clickButton() {
     _isRunning = !_isRunning;
@@ -46,7 +46,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
   }
 
   void _recordLapTime(String time) {
-    _lapTimes.insert(0, '${_lapTimes.length + 1}등 $_time');
+    _lapTimes.insert(0, '${_lapTimes.length + 1}등 $time');
   }
 
   @override
@@ -73,7 +73,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
             children: [
               Text(
                 '$sec',
-                style: TextStyle(fontSize: 50),
+                style: const TextStyle(fontSize: 50),
               ),
               Text(
                 hundredth,
@@ -86,10 +86,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
 
             /// 리스트가 스크롤이 되야 한다.
             child: ListView(
-              children: [
-                /// Center로 감싸면 가운데 정렬
-                Center(child: Text('1')),
-              ],
+              children: _lapTimes.map((e) => Center(child: Text(e))).toList(),
             ),
           ),
           const Spacer(),
